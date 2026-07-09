@@ -26,14 +26,6 @@ const currentYear = new Date().getFullYear()
             rel="noopener noreferrer"
             class="text-sm text-gray-100 hover:text-white transition-colors"
           >
-            {{ t('footer.credits') }}
-          </a>
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-sm text-gray-100 hover:text-white transition-colors"
-          >
             {{ t('footer.enquire') }}
           </a>
           <NuxtLink

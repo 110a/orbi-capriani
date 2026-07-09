@@ -148,18 +148,14 @@ onBeforeUnmount(() => {
         class="absolute inset-0 transition-opacity duration-700"
         :class="index === activeIndex ? 'opacity-100' : 'opacity-0'"
       >
-        <picture class="block h-full w-full">
-          <source media="(min-width: 1024px)" :srcset="resolveImage(slide, 'desktop')" />
-          <source media="(min-width: 640px)" :srcset="resolveImage(slide, 'tablet')" />
-          <NuxtImg
-            :src="resolveImage(slide, 'mobile')"
-            alt=""
-            aria-hidden="true"
-            class="h-full w-full object-cover object-center"
-            loading="eager"
-            decoding="async"
-          />
-        </picture>
+        <NuxtImg
+          :src="resolveImage(slide, 'desktop')"
+          alt=""
+          aria-hidden="true"
+          class="h-full w-full object-cover object-center"
+          loading="eager"
+          decoding="async"
+        />
       </div>
       <div class="absolute inset-0 bg-black/30" />
     </div>
