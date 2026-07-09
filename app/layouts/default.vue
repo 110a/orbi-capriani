@@ -11,7 +11,7 @@ const normalizedPath = computed(() => {
 
 <template>
   <div class="min-h-screen bg-brand-ivory text-brand-ink">
-    <Header v-if="normalizedPath !== '/'" :floating="false" />
+    <Header v-if="normalizedPath !== '/'" :floating="false" theme="dark" />
     <slot />
     <div class="relative z-30">
       <Footer />

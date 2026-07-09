@@ -42,18 +42,14 @@ function updateLocale(code: string) {
   if (path) navigateTo(path)
 }
 
-const rootClass = computed(() => {
-  if (props.floating) {
-    return 'fixed inset-x-0 top-0 z-20 text-white'
-  }
+const rootClass = computed(() => [
+  props.floating ? 'fixed inset-x-0 top-0 z-20' : 'relative z-40',
 
-  return 'relative z-40 text-slate-900'
-})
+  props.theme === 'dark' ? 'text-slate-900' : 'text-white',
+])
 
 const logoVariant = computed(() => (props.theme === 'dark' ? 'dark' : 'light'))
-const textClass = computed(() =>
-  props.theme === 'dark' ? 'text-slate-900' : 'text-white',
-)
+const textClass = computed(() => (props.theme === 'dark' ? 'text-slate-900' : 'text-white'))
 </script>
 
 <template>
@@ -70,8 +66,16 @@ const textClass = computed(() =>
 
       <!-- Desktop nav -->
       <nav class="hidden md:flex items-center gap-8 mr-6" aria-label="Main navigation">
-        <a href="tel:" :class="[textClass, 'text-sm font-medium transition-colors opacity-85 hover:opacity-100']">{{ t('nav.whatsapp') }}</a>
-        <a href="#contact" :class="[textClass, 'text-sm font-medium transition-colors opacity-85 hover:opacity-100']">{{ t('nav.enquire') }}</a>
+        <a
+          href="tel:"
+          :class="[textClass, 'text-sm font-medium transition-colors opacity-85 hover:opacity-100']"
+          >{{ t('nav.whatsapp') }}</a
+        >
+        <a
+          href="#contact"
+          :class="[textClass, 'text-sm font-medium transition-colors opacity-85 hover:opacity-100']"
+          >{{ t('nav.enquire') }}</a
+        >
       </nav>
 
       <!-- Right side: language dropdown -->
@@ -79,7 +83,10 @@ const textClass = computed(() =>
         <div class="relative">
           <button
             type="button"
-            :class="[textClass, 'w-[3rem] flex items-center gap-1 py-1 text-sm font-semibold transition-colors']"
+            :class="[
+              textClass,
+              'w-[3rem] flex items-center gap-1 py-1 text-sm font-semibold transition-colors',
+            ]"
             :aria-expanded="isLangOpen"
             aria-haspopup="listbox"
             @click="toggleLang"
@@ -109,14 +116,14 @@ const textClass = computed(() =>
             <ul
               v-if="isLangOpen"
               role="listbox"
-              class="absolute right-0 top-full mt-1 min-w-[3rem] py-1 text-white bg-transparent"
+              class="absolute right-0 top-full mt-1 min-w-[3rem] py-1 bg-transparent"
             >
               <li
                 v-for="loc in otherLocales"
                 :key="loc.code"
                 role="option"
                 aria-selected="false"
-                class="py-1.5 text-sm cursor-pointer text-white/65 hover:text-white transition-colors"
+                class="py-1.5 text-sm cursor-pointer transition-colors"
                 @click="updateLocale(loc.code)"
               >
                 {{ loc.code.toUpperCase() }}
@@ -127,11 +134,11 @@ const textClass = computed(() =>
       </div>
 
       <!-- Mobile menu toggle -->
-          <button
-          type="button"
-          class="md:hidden p-2"
-          :class="textClass"
-          aria-label="Toggle menu"
+      <button
+        type="button"
+        class="md:hidden p-2"
+        :class="textClass"
+        aria-label="Toggle menu"
         :aria-expanded="isMenuOpen"
         @click="toggleMenu"
       >
@@ -167,7 +174,9 @@ const textClass = computed(() =>
     >
       <nav class="flex flex-col gap-3" aria-label="Mobile navigation">
         <a href="tel:" class="text-sm font-medium text-white/90">{{ t('nav.whatsapp') }}</a>
-        <a href="#contact" class="text-sm font-medium text-white/90" @click="isMenuOpen = false">{{ t('nav.enquire') }}</a>
+        <a href="#contact" class="text-sm font-medium text-white/90" @click="isMenuOpen = false">{{
+          t('nav.enquire')
+        }}</a>
       </nav>
 
       <div class="relative inline-block">
@@ -196,7 +205,7 @@ const textClass = computed(() =>
           <li
             v-for="loc in otherLocales"
             :key="loc.code"
-            class="px-3 py-1.5 text-sm cursor-pointer text-white/65"
+            class="px-3 py-1.5 text-sm cursor-pointer"
             @click="updateLocale(loc.code)"
           >
             {{ loc.code.toUpperCase() }}

@@ -47,7 +47,7 @@ const sections = computed(() =>
 
     <div class="relative z-30 bg-white">
       <div class="mx-auto py-4 px-4">
-        <Header :floating="false" as="div" :show-logo="true" />
+        <Header :floating="false" as="div" :show-logo="true" theme="dark" />
       </div>
       <TwoColumnSection
         v-for="(section, index) in sections"
