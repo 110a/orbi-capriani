@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   app: {
     baseURL: process.env.NUXT_APP_BASE_URL || '/',
     head: {
-      titleTemplate: '%s | Nuxt Marketing Template',
+      titleTemplate: '%s | Capriani Batumi',
       meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
       link: [
         {
@@ -48,7 +48,7 @@ export default defineNuxtConfig({
   },
   site: {
     url: 'https://example.com',
-    name: 'Nuxt Marketing Template',
+    name: 'Capriani Batumi',
   },
   sitemap: {
     autoLastmod: true,

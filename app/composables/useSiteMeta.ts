@@ -4,9 +4,8 @@ interface SiteMetaInput {
   image?: string
 }
 
-const SITE_NAME = 'Nuxt Marketing Template'
-const DEFAULT_DESCRIPTION =
-  'Reusable Nuxt 4 one-page marketing template for freelance client projects.'
+const SITE_NAME = 'Capriani Batumi'
+const DEFAULT_DESCRIPTION = 'description.'
 const DEFAULT_IMAGE = '/og-default.jpg'
 
 export const useSiteMeta = (meta: SiteMetaInput = {}) => {

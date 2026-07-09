@@ -1,6 +1,6 @@
 ---
-title: 'Nuxt Marketing Template'
-description: 'A reusable one-page Nuxt starter for freelance marketing websites.'
+title: 'Capriani Batumi'
+description: 'description.'
 ---
 
 ## Body Section
