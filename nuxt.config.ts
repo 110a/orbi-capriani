@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     preset: 'static',
   },
   app: {
+    baseURL: process.env.NUXT_APP_BASE_URL || '/',
     head: {
       titleTemplate: '%s | Nuxt Marketing Template',
       meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],

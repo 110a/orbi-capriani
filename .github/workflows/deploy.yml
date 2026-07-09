@@ -23,6 +23,8 @@ jobs:
       - run: npm ci
 
       - run: npm run generate
+        env:
+          NUXT_APP_BASE_URL: /orbi-capriani/
 
       - uses: actions/upload-pages-artifact@v3
         with:
