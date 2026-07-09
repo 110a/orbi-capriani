@@ -15,18 +15,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v3
-        with:
-          version: 9
-
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: pnpm
+          cache: npm
 
-      - run: pnpm install
+      - run: npm ci
 
-      - run: pnpm generate
+      - run: npm run generate
 
       - uses: actions/upload-pages-artifact@v3
         with:
