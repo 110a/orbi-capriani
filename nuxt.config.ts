@@ -21,21 +21,21 @@ export default defineNuxtConfig({
         {
           rel: 'icon',
           type: 'image/svg+xml',
-          href: `${process.env.NUXT_APP_BASE_URL || '/'}//images/favicon/favicon.svg`,
+          href: `${process.env.NUXT_APP_BASE_URL || '/'}/images/favicon/favicon.svg`,
         },
         {
           rel: 'shortcut icon',
           href: '/images/favicon/favicon.ico',
-          href: `${process.env.NUXT_APP_BASE_URL || '/'}//images/favicon/favicon.ico`,
+          href: `${process.env.NUXT_APP_BASE_URL || '/'}/images/favicon/favicon.ico`,
         },
         {
           rel: 'apple-touch-icon',
           sizes: '180x180',
-          href: `${process.env.NUXT_APP_BASE_URL || '/'}//images/favicon/apple-touch-icon.png`,
+          href: `${process.env.NUXT_APP_BASE_URL || '/'}/images/favicon/apple-touch-icon.png`,
         },
         {
           rel: 'manifest',
-          href: `${process.env.NUXT_APP_BASE_URL || '/'}//
+          href: `${process.env.NUXT_APP_BASE_URL || '/'}/
         images/favicon/site.webmanifest`,
         },
       ],
