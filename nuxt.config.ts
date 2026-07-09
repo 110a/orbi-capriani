@@ -15,26 +15,28 @@ export default defineNuxtConfig({
         {
           rel: 'icon',
           type: 'image/png',
-          href: '/images/favicon/favicon-96x96.png',
+          href: `${process.env.NUXT_APP_BASE_URL || '/'}/images/favicon/favicon-96x96.png`,
           sizes: '96x96',
         },
         {
           rel: 'icon',
           type: 'image/svg+xml',
-          href: '/images/favicon/favicon.svg',
+          href: `${process.env.NUXT_APP_BASE_URL || '/'}//images/favicon/favicon.svg`,
         },
         {
           rel: 'shortcut icon',
           href: '/images/favicon/favicon.ico',
+          href: `${process.env.NUXT_APP_BASE_URL || '/'}//images/favicon/favicon.ico`,
         },
         {
           rel: 'apple-touch-icon',
           sizes: '180x180',
-          href: '/images/favicon/apple-touch-icon.png',
+          href: `${process.env.NUXT_APP_BASE_URL || '/'}//images/favicon/apple-touch-icon.png`,
         },
         {
           rel: 'manifest',
-          href: '/images/favicon/site.webmanifest',
+          href: `${process.env.NUXT_APP_BASE_URL || '/'}//
+        images/favicon/site.webmanifest`,
         },
       ],
     },
