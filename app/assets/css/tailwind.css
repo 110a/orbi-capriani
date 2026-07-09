@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-brand-ink: #0f172a;
+    --color-brand-ivory: #f8f6f0;
+    --color-brand-gold: #b9975b;
+    --color-brand-stone: #e7e1d5;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .bg-brand-ivory {
+    background-color: var(--color-brand-ivory);
+  }
+
+  .text-brand-ink {
+    color: var(--color-brand-ink);
+  }
+
+  .text-brand-gold {
+    color: var(--color-brand-gold);
+  }
+
+  .border-brand-stone {
+    border-color: var(--color-brand-stone);
+  }
+}
+
+@layer base {
+  body {
+    background-color: var(--color-brand-ivory);
+    color: var(--color-brand-ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html:lang(ka) p {
+    /* letter-spacing: -0.02em; */
+  }
+
+  /* html:lang(en),
+  html:lang(ru) {
+    font-size: 100%;
+  } */
+
+  html:lang(en) body {
+    font-family: 'Futura PT', 'Futura', 'Trebuchet MS', sans-serif;
+  }
+
+  html:lang(ka) body {
+    /* font-family: 'Noto Sans Georgian', sans-serif; */
+    font-family: 'DejaVuSans', sans-serif;
+  }
+
+  html:lang(ru) body {
+    font-family: 'Futura PT', 'Futura', 'Trebuchet MS', sans-serif;
+  }
+
+  html:lang(en) h1,
+  html:lang(en) h2,
+  html:lang(en) h3,
+  html:lang(en) h4,
+  html:lang(en) h5,
+  html:lang(en) h6 {
+    font-family: 'Futura PT', 'Futura', 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+  }
+
+  html:lang(ka) h1,
+  html:lang(ka) h2,
+  html:lang(ka) h3,
+  html:lang(ka) h4,
+  html:lang(ka) h5,
+  html:lang(ka) h6,
+  header:lang(ka),
+  button:lang(ka),
+  .uppercase:lang(ka) {
+    /* font-family: 'DejaVuSans', sans-serif; */
+    font-family: 'bpg-web-002-caps';
+  }
+
+  html:lang(ru) h1,
+  html:lang(ru) h2,
+  html:lang(ru) h3,
+  html:lang(ru) h4,
+  html:lang(ru) h5,
+  html:lang(ru) h6 {
+    font-family: 'Futura PT', 'Futura', 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+  }
+}
+.upercase {
+  text-transform: uppercase;
+  -moz-font-feature-settings: 'case';
+  -webkit-font-feature-settings: 'case';
+  font-feature-settings: 'case' on;
+}

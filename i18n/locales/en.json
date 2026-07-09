@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "whatsapp": "WHATSAPP",
+    "enquire": "ENQUIRE"
+  },
+  "footer": {
+    "credits": "Credits",
+    "enquire": "Enquire",
+    "privacy": "Privacy Policy",
+    "copyright": "© {year} Cipriani USA, Inc. All rights reserved."
+  },
+  "hero": {
+    "prevSlide": "Previous slide",
+    "nextSlide": "Next slide",
+    "goToSlide": "Go to slide {n}"
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "firstName": "First name",
+    "surname": "Surname",
+    "mail": "Mail",
+    "phone": "Phone",
+    "submit": "Submit"
+  },
+  "sections": {
+    "about": {
+      "eyebrow": "About",
+      "title": "Cipriani Residences Batumi",
+      "body": "Rising on the sunlit shores of the Black Sea, Cipriani Resort, Residences and Casino, Batumi marks a new chapter in the storied Cipriani legacy — the brand's first resort and residential offering in Europe. Set in the heart of Georgia's most dynamic coastal city, Cipriani Residences Batumi will offer residents a life of effortless elegance, where every moment is touched by timeless sophistication.",
+      "imageCaption": " "
+    },
+    "location": {
+      "eyebrow": "Location",
+      "title": "THE STORY",
+      "body": "The Cipriani legacy began when Giuseppe Cipriani Sr. opened Harry’s Bar in Venice in 1931. Warm and inviting, the small room was soon crowded with artists, aristocrats, and writers who came for the martinis and stayed for the conversation. Attracting everyone from Ernest Hemingway to Katharine Hepburn, it became famous for its charming atmosphere and discreet, anticipatory service.",
+      "imageCaption": "Cipriani dining services ensure the Bellini cocktail is never out of reach"
+    },
+    "experience": {
+      "eyebrow": "Experience",
+      "title": "THE LOCATION",
+      "body": "Batumi is situated 300km west of Tbilisi, within the subtropical foothills of the Caucasus Mountains on the southwestern coast of Georgia. Nestled within a site that boasts a rich and diverse 2,000-year-old history as the maritime gate of Georgia, Batumi promises a distinctive experience that celebrates both metropolitan living and natural landscapes.",
+      "imageCaption": "Cipriani Residences Batumi"
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy"
+  }
+}
