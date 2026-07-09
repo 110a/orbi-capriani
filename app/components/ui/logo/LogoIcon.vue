@@ -22,7 +22,7 @@ const logoSrc = computed(() => {
 
 <template>
   <span class="inline-flex shrink-0 items-center aspect-[485/77]" :class="$props.class">
-    <img
+    <NuxtImg
       :src="logoSrc"
       alt="Capriani"
       class="block h-full w-full"

@@ -26,7 +26,7 @@ const props = withDefaults(
     >
       <div>
         <figure class="relative">
-          <img
+          <NuxtImg
             :src="props.image"
             alt="Contact"
             class="h-full aspect-[4/5] w-full object-cover object-center overflow-hidden"

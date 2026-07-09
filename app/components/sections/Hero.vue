@@ -151,7 +151,7 @@ onBeforeUnmount(() => {
         <picture class="block h-full w-full">
           <source media="(min-width: 1024px)" :srcset="resolveImage(slide, 'desktop')" />
           <source media="(min-width: 640px)" :srcset="resolveImage(slide, 'tablet')" />
-          <img
+          <NuxtImg
             :src="resolveImage(slide, 'mobile')"
             alt=""
             aria-hidden="true"

@@ -46,7 +46,7 @@ const isReversed = computed(() => {
         :class="isReversed ? 'lg:col-start-1 lg:row-start-1' : 'lg:col-start-3 lg:row-start-1'"
       >
         <figure>
-          <img
+          <NuxtImg
             :src="image"
             :alt="title"
             class="h-full aspect-[4/5] w-full object-cover object-center"

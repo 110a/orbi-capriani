@@ -13,8 +13,8 @@ const currentYear = new Date().getFullYear()
       <!-- Logo  -->
       <div class="flex items-center gap-10">
         <LogoFull variant="light" class="mb-3 w-16 h-auto" />
-        <img src="/images/logo/logo-orbi.svg" alt="Logo" class="mb-3 w-6" />
-        <img src="/images/logo/logo-block.svg" alt="Logo" class="mb-3 w-12" />
+        <NuxtImg src="/images/logo/logo-orbi.svg" alt="Logo" class="mb-3 w-6" />
+        <NuxtImg src="/images/logo/logo-block.svg" alt="Logo" class="mb-3 w-12" />
       </div>
 
       <!-- Nav -->
