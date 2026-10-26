@@ -39,10 +39,10 @@ const isReversed = computed(() => {
 <template>
   <section class="border-t border-[#14315c]" :aria-labelledby="`${props.sectionId}-title`">
     <div
-      class="grid items-center gap-6 lg:grid-cols-[minmax(0,1fr)_1px_minmax(0,1fr)] lg:items-center lg:gap-20 mx-auto px-6 py-16 lg:px-20"
+      class="grid items-center justify-items-center gap-6 lg:grid-cols-[minmax(0,1fr)_1px_minmax(0,1fr)] lg:items-center lg:gap-20 mx-auto px-6 py-16 lg:px-20"
     >
       <div
-        class="overflow-hidden relative"
+        class="overflow-hidden relative w-full"
         :class="isReversed ? 'lg:col-start-1 lg:row-start-1' : 'lg:col-start-3 lg:row-start-1'"
       >
         <figure>

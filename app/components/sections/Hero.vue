@@ -168,6 +168,8 @@ onBeforeUnmount(() => {
       >
         <div class="flex w-full max-w-2xl flex-col items-center text-center">
           <LogoFull variant="light" class="w-1/2 h-full" />
+          <!-- აქ სეოს ტექსტი წამოვიღო თუ ? -->
+          <h1 class="sr-only">Cipriani Residences Batumi — Luxury Resort & Residences</h1>
         </div>
       </div>
     </div>
