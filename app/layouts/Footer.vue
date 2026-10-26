@@ -20,14 +20,9 @@ const currentYear = new Date().getFullYear()
       <!-- Nav -->
       <div>
         <div class="flex gap-4">
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-sm text-gray-100 hover:text-white transition-colors"
-          >
+          <NuxtLink to="#" class="text-sm text-gray-100 hover:text-white transition-colors">
             {{ t('footer.enquire') }}
-          </a>
+          </NuxtLink>
           <NuxtLink
             :to="localePath('/privacy')"
             class="text-sm text-gray-100 hover:text-white transition-colors"
@@ -40,7 +35,7 @@ const currentYear = new Date().getFullYear()
 
     <div class="border-t border-gray-800">
       <div class="max-w-6xl mx-auto px-4 py-4 text-xs text-gray-500 text-center">
-        © {{ currentYear }} Cipriani USA, Inc. {{ t('footer.copyright', { year: currentYear }) }}
+        {{ t('footer.copyright', { year: currentYear }) }}
       </div>
     </div>
   </footer>
