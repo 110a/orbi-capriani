@@ -65,18 +65,23 @@ const textClass = computed(() => (props.theme === 'dark' ? 'text-slate-900' : 't
       </NuxtLink>
 
       <!-- Desktop nav -->
-      <nav class="hidden md:flex items-center gap-8 mr-6" aria-label="Main navigation">
+      <div class="flex items-center gap-4">
         <a
           href="tel:"
           :class="[textClass, 'text-sm font-medium transition-colors opacity-85 hover:opacity-100']"
           >{{ t('nav.whatsapp') }}</a
         >
-        <a
-          href="#contact"
-          :class="[textClass, 'text-sm font-medium transition-colors opacity-85 hover:opacity-100']"
-          >{{ t('nav.enquire') }}</a
-        >
-      </nav>
+        <nav class="hidden md:flex items-center gap-8 mr-6" aria-label="Main navigation">
+          <a
+            href="#contact"
+            :class="[
+              textClass,
+              'text-sm font-medium transition-colors opacity-85 hover:opacity-100',
+            ]"
+            >{{ t('nav.enquire') }}</a
+          >
+        </nav>
+      </div>
 
       <!-- Right side: language dropdown -->
       <div class="hidden md:flex items-center gap-4">

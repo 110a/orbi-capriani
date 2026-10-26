@@ -161,8 +161,6 @@ onBeforeUnmount(() => {
     </div>
 
     <div class="relative z-10 flex min-h-[100dvh] flex-col">
-      <Header :floating="false" as="div" :show-logo="false" />
-
       <div
         class="mx-auto flex min-h-[calc(100dvh-4rem)] w-full items-center justify-center px-6 py-20 lg:px-8"
       >

@@ -42,12 +42,13 @@ const sections = computed(() =>
 </script>
 
 <template>
+  <Header :floating="false" :show-logo="false" theme="light" />
   <main>
     <HeroSection />
 
     <div class="relative z-30 bg-white">
       <div class="mx-auto py-4 px-4">
-        <Header :floating="false" as="div" :show-logo="true" theme="dark" />
+        <Header :floating="false" as="div" theme="dark" />
       </div>
       <TwoColumnSection
         v-for="(section, index) in sections"
