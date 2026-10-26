@@ -43,7 +43,7 @@ function updateLocale(code: string) {
 }
 
 const rootClass = computed(() => [
-  props.floating ? 'fixed inset-x-0 top-0 z-20' : 'relative z-40',
+  props.floating ? 'absolute inset-x-0 top-0 z-20' : 'relative z-40',
 
   props.theme === 'dark' ? 'text-slate-900' : 'text-white',
 ])
@@ -54,14 +54,14 @@ const textClass = computed(() => (props.theme === 'dark' ? 'text-slate-900' : 't
 
 <template>
   <component :is="as" :class="rootClass">
-    <div class="relative mx-auto px-4 flex items-center justify-end h-16">
+    <div class="relative mx-auto pr-2 pl-4 md:pr-4 flex items-center justify-end h-16">
       <!-- Logo -->
       <NuxtLink
         v-if="props.showLogo"
         :to="homeHref"
-        class="flex items-center gap-2 shrink-0 md:mr-auto lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:mr-0"
+        class="flex items-center gap-2 shrink-0 absolute left-1/2 -translate-x-1/2 mr-0"
       >
-        <BrandLogoText :variant="logoVariant" class="h-9 w-auto" />
+        <BrandLogoText :variant="logoVariant" class="h-8 sm:h-8 md:h-8 lg:h-9 w-auto" />
       </NuxtLink>
 
       <!-- Desktop nav -->

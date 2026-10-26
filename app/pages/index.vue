@@ -42,12 +42,12 @@ const sections = computed(() =>
 </script>
 
 <template>
-  <Header :floating="false" :show-logo="false" theme="light" />
+  <Header :show-logo="false" theme="light" />
   <main>
     <HeroSection />
 
     <div class="relative z-30 bg-white">
-      <div class="mx-auto py-4 px-4">
+      <div class="mx-auto py-2 md:py-2 lg:py-4" id="header">
         <Header :floating="false" as="div" theme="dark" />
       </div>
       <TwoColumnSection

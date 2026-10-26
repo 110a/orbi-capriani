@@ -20,7 +20,7 @@ const currentYear = new Date().getFullYear()
       <!-- Nav -->
       <div>
         <div class="flex gap-4">
-          <NuxtLink to="#" class="text-sm text-gray-100 hover:text-white transition-colors">
+          <NuxtLink to="#contact" class="text-sm text-gray-100 hover:text-white transition-colors">
             {{ t('footer.enquire') }}
           </NuxtLink>
           <NuxtLink

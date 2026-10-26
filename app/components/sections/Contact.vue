@@ -22,9 +22,9 @@ const props = withDefaults(
     id="contact"
   >
     <div
-      class="grid items-center gap-6 lg:grid-cols-[minmax(0,1fr)_1px_minmax(0,1fr)] lg:items-center lg:gap-20 mx-auto px-6 py-16 lg:px-20"
+      class="mx-auto grid w-full items-center justify-items-center gap-6 px-6 py-16 2xl:max-w-[1840px] lg:grid-cols-[minmax(0,1fr)_1px_minmax(0,1fr)] lg:gap-20 lg:px-20"
     >
-      <div>
+      <div class="relative w-full max-w-md overflow-hidden lg:max-w-none">
         <figure class="relative">
           <NuxtImg
             :src="props.image"
@@ -47,10 +47,10 @@ const props = withDefaults(
         aria-hidden="true"
       />
 
-      <div class="flex h-full flex-col justify-center px-1 py-2">
+      <div class="flex h-full min-w-0 w-full flex-col justify-center px-1 py-2">
         <div class="mx-auto w-full max-w-xl text-center">
           <h2
-            class="text-5xl uppercase tracking-[0.35em] text-white [-webkit-text-stroke:1px_black]"
+            class="[overflow-wrap:anywhere] text-4xl uppercase tracking-[0.12em] text-white sm:text-5xl sm:tracking-[0.35em] [-webkit-text-stroke:1px_black]"
           >
             {{ t('contact.eyebrow') }}
           </h2>

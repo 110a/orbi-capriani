@@ -7,6 +7,7 @@ const props = withDefaults(
     title: string
     body: string
     image: string
+    alt?: string
     imageCaption?: string
     imagePosition?: 'left' | 'right' | 'auto'
     index?: number
@@ -37,15 +38,19 @@ const isReversed = computed(() => {
 </script>
 
 <template>
-  <section class="border-t border-[#14315c]" :aria-labelledby="`${props.sectionId}-title`">
+  <section
+    class="border-t border-[#14315c]"
+    :aria-labelledby="`${props.sectionId}-title`"
+    :id="props.sectionId"
+  >
     <div
-      class="grid items-center justify-items-center gap-6 lg:grid-cols-[minmax(0,1fr)_1px_minmax(0,1fr)] lg:items-center lg:gap-20 mx-auto px-6 py-16 lg:px-20"
+      class="mx-auto grid w-full items-center justify-items-center gap-6 px-6 py-16 2xl:max-w-[1800px] lg:grid-cols-[minmax(0,1fr)_1px_minmax(0,1fr)] lg:gap-20 lg:px-20"
     >
       <div
-        class="overflow-hidden relative w-full"
+        class="relative min-w-0 w-full max-w-md overflow-hidden lg:max-w-none"
         :class="isReversed ? 'lg:col-start-1 lg:row-start-1' : 'lg:col-start-3 lg:row-start-1'"
       >
-        <figure>
+        <figure class="w-full min-w-0">
           <NuxtImg
             :src="image"
             :alt="title"
@@ -63,34 +68,34 @@ const isReversed = computed(() => {
       </div>
 
       <div
-        class="hidden bg-[#14315c] lg:block lg:col-start-2 lg:row-start-1 lg:self-stretch"
+        class="hidden lg:block h-px w-full bg-[#14315c] lg:col-start-2 lg:row-start-1 lg:h-auto lg:w-px lg:self-stretch"
         aria-hidden="true"
       />
 
       <div
-        class="flex h-full flex-col justify-center px-1 py-2"
+        class="flex h-full min-w-0 w-full flex-col justify-center items-center px-1 py-2"
         :class="
           isReversed
             ? 'lg:col-start-3 lg:row-start-1 lg:items-end lg:text-right'
             : 'lg:col-start-1 lg:row-start-1'
         "
       >
-        <div class="max-w-xl text-center">
+        <div class="w-full max-w-xl text-center">
           <!-- <p class="text-sm font-semibold uppercase tracking-[0.35em] text-sky-600">
             {{ eyebrow }}
           </p> -->
           <h2
             :id="`${props.sectionId}-title`"
-            class="mt-4 text-3xl font-semibold tracking-tight text-slate-900 sm:text-5xl"
+            class="mt-4 [overflow-wrap:anywhere] text-3xl font-semibold tracking-tight text-slate-900 sm:text-5xl"
           >
             {{ title }}
           </h2>
-          <p class="mt-4 text-3xl text-slate-600">
+          <p class="mt-4 text-xl [overflow-wrap:anywhere] sm:text-2xl lg:text-3xl text-slate-600">
             {{ body }}
           </p>
 
           <div class="mt-8 flex justify-center">
-            <LogoIcon :variant="logoVariant" class="h-16 w-auto" />
+            <LogoIcon :variant="logoVariant" class="h-auto w-full max-w-[20rem]" />
           </div>
         </div>
       </div>

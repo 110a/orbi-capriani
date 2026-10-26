@@ -134,7 +134,7 @@ onBeforeUnmount(() => {
 
 <template>
   <header
-    class="relative isolate min-h-[100dvh] overflow-hidden text-white"
+    class="relative isolate h-[100svh] min-h-[640px] overflow-hidden text-white"
     @mouseenter="stopAutoplay"
     @mouseleave="startAutoplay"
     @touchstart.passive="handleTouchStart"
@@ -160,10 +160,8 @@ onBeforeUnmount(() => {
       <div class="absolute inset-0 bg-black/30" />
     </div>
 
-    <div class="relative z-10 flex min-h-[100dvh] flex-col">
-      <div
-        class="mx-auto flex min-h-[calc(100dvh-4rem)] w-full items-center justify-center px-6 py-20 lg:px-8"
-      >
+    <div class="relative z-10 flex h-full flex-col">
+      <div class="mx-auto flex h-full w-full items-center justify-center px-6 py-20 lg:px-8">
         <div class="flex w-full max-w-2xl flex-col items-center text-center">
           <LogoFull variant="light" class="w-1/2 h-full" />
           <!-- აქ სეოს ტექსტი წამოვიღო თუ ? -->
@@ -187,7 +185,26 @@ onBeforeUnmount(() => {
         />
       </div>
 
-      <div class="pointer-events-auto flex items-center gap-2">
+      <a
+        href="#header"
+        class="pointer-events-auto absolute left-1/2 inline-flex h-11 w-11 -translate-x-1/2 items-center justify-center text-white transition hover:text-white/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+        aria-label="Scroll to the first section"
+      >
+        <svg
+          class="h-10 w-10"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="0.5"
+        >
+          <path d="m6 9 6 6 6-6" />
+        </svg>
+      </a>
+
+      <!-- <div class="pointer-events-auto flex items-center gap-2">
         <button
           type="button"
           class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/40 bg-white/10 text-white transition hover:bg-white/20"
@@ -204,7 +221,7 @@ onBeforeUnmount(() => {
         >
           ›
         </button>
-      </div>
+      </div> -->
     </div>
   </header>
 </template>
