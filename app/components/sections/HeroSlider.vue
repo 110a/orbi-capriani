@@ -133,7 +133,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <header
+  <div
     class="relative isolate h-[100svh] min-h-[640px] overflow-hidden text-white"
     @mouseenter="stopAutoplay"
     @mouseleave="startAutoplay"
@@ -154,7 +154,7 @@ onBeforeUnmount(() => {
           aria-hidden="true"
           class="h-full w-full object-cover object-center"
           loading="eager"
-          decoding="async"
+          decoding="preload"
         />
       </div>
       <div class="absolute inset-0 bg-black/30" />
@@ -223,5 +223,5 @@ onBeforeUnmount(() => {
         </button>
       </div> -->
     </div>
-  </header>
+  </div>
 </template>

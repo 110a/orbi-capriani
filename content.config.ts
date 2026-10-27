@@ -8,6 +8,7 @@ export default defineContentConfig({
       schema: z.object({
         title: z.string(),
         description: z.string(),
+        hero: z.enum(['slider', 'video']).default('slider'),
       }),
     }),
   },

@@ -54,7 +54,9 @@ const textClass = computed(() => (props.theme === 'dark' ? 'text-slate-900' : 't
 
 <template>
   <component :is="as" :class="rootClass">
-    <div class="relative mx-auto pr-2 pl-4 md:pr-4 flex items-center justify-end h-16">
+    <div
+      class="relative mx-auto pr-2 pl-4 md:pr-4 flex items-center justify-end h-16 text-xl 2xl:text-xl"
+    >
       <!-- Logo -->
       <NuxtLink
         v-if="props.showLogo"
@@ -71,16 +73,13 @@ const textClass = computed(() => (props.theme === 'dark' ? 'text-slate-900' : 't
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Contact us on WhatsApp"
-          :class="[textClass, 'text-sm font-medium transition-colors opacity-85 hover:opacity-100']"
+          :class="[textClass, 'font-medium transition-colors opacity-85 hover:opacity-100']"
           >{{ t('nav.whatsapp') }}</a
         >
         <nav class="hidden md:flex items-center gap-8 mr-6" aria-label="Main navigation">
           <NuxtLink
             to="#contact"
-            :class="[
-              textClass,
-              'text-sm font-medium transition-colors opacity-85 hover:opacity-100',
-            ]"
+            :class="[textClass, 'font-medium transition-colors opacity-85 hover:opacity-100']"
             >{{ t('nav.enquire') }}
           </NuxtLink>
         </nav>
@@ -93,7 +92,7 @@ const textClass = computed(() => (props.theme === 'dark' ? 'text-slate-900' : 't
             type="button"
             :class="[
               textClass,
-              'w-[3rem] flex items-center gap-1 py-1 text-sm font-semibold transition-colors',
+              'w-[3rem] flex items-center gap-1 py-1font-semibold transition-colors',
             ]"
             :aria-expanded="isLangOpen"
             aria-haspopup="listbox"
@@ -131,7 +130,7 @@ const textClass = computed(() => (props.theme === 'dark' ? 'text-slate-900' : 't
                 :key="loc.code"
                 role="option"
                 aria-selected="false"
-                class="py-1.5 text-sm cursor-pointer transition-colors"
+                class="py-1.5 cursor-pointer transition-colors"
                 @click="updateLocale(loc.code)"
               >
                 {{ loc.code.toUpperCase() }}

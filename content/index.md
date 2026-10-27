@@ -1,6 +1,7 @@
 ---
 title: 'Capriani Batumi'
 description: 'description.'
+hero: slider
 ---
 
 ## Body Section

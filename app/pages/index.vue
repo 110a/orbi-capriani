@@ -1,14 +1,10 @@
 <script setup lang="ts">
 import Header from '../layouts/Header.vue'
 import ContactSection from '../components/sections/Contact.vue'
-import HeroSection from '../components/sections/Hero.vue'
+import HeroVideo from '../components/sections/HeroVideo.vue'
 import TwoColumnSection from '../components/sections/TwoColumn.vue'
 
 const { t } = useI18n()
-
-const { data: pageContent } = await useAsyncData('home-content', () =>
-  queryCollection('content').path('/index').first(),
-)
 
 useSiteMeta({
   title: 'Home',
@@ -44,7 +40,7 @@ const sections = computed(() =>
 <template>
   <Header :show-logo="false" theme="light" />
   <main>
-    <HeroSection />
+    <HeroVideo />
 
     <div class="relative z-30 bg-white">
       <div class="mx-auto py-2 md:py-2 lg:py-4" id="header">
