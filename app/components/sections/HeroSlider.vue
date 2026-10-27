@@ -171,7 +171,7 @@ onBeforeUnmount(() => {
     </div>
 
     <div
-      class="pointer-events-none absolute inset-x-0 bottom-8 z-20 mx-auto flex items-center justify-between px-6 lg:px-8"
+      class="pointer-events-none absolute inset-x-0 bottom-16 z-20 mx-auto flex items-center justify-between px-6 lg:px-8"
     >
       <div class="pointer-events-auto flex items-center gap-2">
         <button

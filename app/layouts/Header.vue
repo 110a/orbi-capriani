@@ -45,11 +45,11 @@ function updateLocale(code: string) {
 const rootClass = computed(() => [
   props.floating ? 'absolute inset-x-0 top-0 z-20' : 'relative z-40',
 
-  props.theme === 'dark' ? 'text-slate-900' : 'text-white',
+  props.theme === 'dark' ? 'text-gray-900' : 'text-white',
 ])
 
 const logoVariant = computed(() => (props.theme === 'dark' ? 'dark' : 'light'))
-const textClass = computed(() => (props.theme === 'dark' ? 'text-slate-900' : 'text-white'))
+const textClass = computed(() => (props.theme === 'dark' ? 'text-gray-900' : 'text-white'))
 </script>
 
 <template>
@@ -67,7 +67,7 @@ const textClass = computed(() => (props.theme === 'dark' ? 'text-slate-900' : 't
       </NuxtLink>
 
       <!-- Desktop nav -->
-      <div class="flex items-center gap-4">
+      <div class="flex items-center gap-4 hidden md:flex">
         <a
           href="https://wa.me/995XXXXXXXXX"
           target="_blank"
@@ -143,15 +143,16 @@ const textClass = computed(() => (props.theme === 'dark' ? 'text-slate-900' : 't
       <!-- Mobile menu toggle -->
       <button
         type="button"
-        class="md:hidden p-2"
-        :class="textClass"
+        class="relative z-[60] p-2 transition-colors duration-200 md:hidden"
+        :class="isMenuOpen ? 'text-gray-900' : textClass"
         aria-label="Toggle menu"
         :aria-expanded="isMenuOpen"
         @click="toggleMenu"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
+          class="h-6 w-6 transition-transform duration-200"
+          :class="isMenuOpen ? 'rotate-90' : 'rotate-0'"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -175,50 +176,51 @@ const textClass = computed(() => (props.theme === 'dark' ? 'text-slate-900' : 't
     </div>
 
     <!-- Mobile menu -->
-    <div
-      v-if="isMenuOpen"
-      class="md:hidden border-t border-white/20 bg-black/55 backdrop-blur px-4 py-4 space-y-4"
-    >
-      <nav class="flex flex-col gap-3" aria-label="Mobile navigation">
-        <a href="tel:" class="text-sm font-medium text-white/90">{{ t('nav.whatsapp') }}</a>
-        <a href="#contact" class="text-sm font-medium text-white/90" @click="isMenuOpen = false">{{
-          t('nav.enquire')
-        }}</a>
-      </nav>
-
-      <div class="relative inline-block">
-        <button
-          type="button"
-          class="flex items-center gap-1 text-sm font-semibold text-white/90"
-          @click="isLangOpen = !isLangOpen"
-        >
-          {{ locale.toUpperCase() }}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-3.5 w-3.5 transition-transform"
-            :class="isLangOpen ? 'rotate-180' : ''"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2.5"
+    <Transition name="mobile-menu">
+      <div
+        v-if="isMenuOpen"
+        class="absolute inset-x-0 z-50 bg-white/20 px-4 py-5 text-gray-900 backdrop-blur-md md:hidden"
+        :class="props.floating ? 'top-0' : 'top-full'"
+      >
+        <nav class="flex flex-col gap-3" aria-label="Mobile navigation">
+          <a href="tel:" class="text-xl font-medium transition-colors hover:text-gray-600">{{
+            t('nav.whatsapp')
+          }}</a>
+          <a
+            href="#contact"
+            class="text-xl font-medium transition-colors hover:text-gray-600"
+            @click="isMenuOpen = false"
+            >{{ t('nav.enquire') }}</a
           >
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        <ul
-          v-if="isLangOpen"
-          class="mt-2 rounded-md border border-white/15 bg-black/70 backdrop-blur py-1"
-        >
+        </nav>
+
+        <ul class="mt-5 flex items-center gap-5 pt-4" aria-label="Languages">
           <li
-            v-for="loc in otherLocales"
+            v-for="loc in locales"
             :key="loc.code"
-            class="px-3 py-1.5 text-sm cursor-pointer"
+            class="text-xl font-semibold transition-colors"
+            :class="loc.code === locale ? 'text-gray-900' : 'text-gray-600 hover:text-gray-900'"
             @click="updateLocale(loc.code)"
           >
             {{ loc.code.toUpperCase() }}
           </li>
         </ul>
       </div>
-    </div>
+    </Transition>
   </component>
 </template>
+
+<style scoped>
+.mobile-menu-enter-active,
+.mobile-menu-leave-active {
+  transition:
+    opacity 240ms ease,
+    transform 240ms ease;
+}
+
+.mobile-menu-enter-from,
+.mobile-menu-leave-to {
+  opacity: 0;
+  transform: translateY(-1rem);
+}
+</style>

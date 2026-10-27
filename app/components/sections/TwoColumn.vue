@@ -86,7 +86,7 @@ const isReversed = computed(() => {
           </p> -->
           <h2
             :id="`${props.sectionId}-title`"
-            class="mt-4 [overflow-wrap:anywhere] text-3xl font-semibold tracking-tight text-slate-900 sm:text-5xl"
+            class="[overflow-wrap:anywhere] text-4xl uppercase tracking-[0.02em] text-white sm:text-5xl sm:tracking-[0.02em] [-webkit-text-stroke:1px_black]"
           >
             {{ title }}
           </h2>

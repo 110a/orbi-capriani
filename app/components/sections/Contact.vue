@@ -50,7 +50,7 @@ const props = withDefaults(
       <div class="flex h-full min-w-0 w-full flex-col justify-center px-1 py-2">
         <div class="mx-auto w-full max-w-xl text-center">
           <h2
-            class="[overflow-wrap:anywhere] text-4xl uppercase tracking-[0.12em] text-white sm:text-5xl sm:tracking-[0.35em] [-webkit-text-stroke:1px_black]"
+            class="[overflow-wrap:anywhere] text-4xl uppercase tracking-[0.02em] text-white sm:text-5xl sm:tracking-[0.02em] [-webkit-text-stroke:1px_black]"
           >
             {{ t('contact.eyebrow') }}
           </h2>

@@ -28,7 +28,7 @@ import LogoFull from '../ui/logo/LogoFull.vue'
       </div>
     </div>
 
-    <div class="pointer-events-none absolute inset-x-0 bottom-8 z-20 mx-auto px-6 lg:px-8">
+    <div class="pointer-events-none absolute inset-x-0 bottom-16 z-20 mx-auto px-6 lg:px-8">
       <a
         href="#header"
         class="pointer-events-auto absolute left-1/2 inline-flex h-11 w-11 -translate-x-1/2 items-center justify-center text-white transition hover:text-white/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"

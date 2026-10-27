@@ -67,7 +67,7 @@
   html:lang(en) h5,
   html:lang(en) h6 {
     font-family: 'Futura PT', 'Futura', 'Trebuchet MS', sans-serif;
-    font-weight: 600;
+    font-weight: 500;
   }
 
   html:lang(ka) h1,
@@ -90,7 +90,7 @@
   html:lang(ru) h5,
   html:lang(ru) h6 {
     font-family: 'Futura PT', 'Futura', 'Trebuchet MS', sans-serif;
-    font-weight: 600;
+    font-weight: 500;
   }
 }
 .upercase {
