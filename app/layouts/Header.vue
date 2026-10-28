@@ -45,17 +45,17 @@ function updateLocale(code: string) {
 const rootClass = computed(() => [
   props.floating ? 'absolute inset-x-0 top-0 z-20' : 'relative z-40',
 
-  props.theme === 'dark' ? 'text-gray-900' : 'text-white',
+  props.theme === 'dark' ? 'text-ink' : 'text-white',
 ])
 
 const logoVariant = computed(() => (props.theme === 'dark' ? 'dark' : 'light'))
-const textClass = computed(() => (props.theme === 'dark' ? 'text-gray-900' : 'text-white'))
+const textClass = computed(() => (props.theme === 'dark' ? 'text-ink' : 'text-white'))
 </script>
 
 <template>
   <component :is="as" :class="rootClass">
     <div
-      class="relative mx-auto pr-2 pl-4 md:pr-4 flex items-center justify-end h-16 text-xl 2xl:text-xl"
+      class="relative mx-auto pr-2 pl-4 md:pr-4 xl:pr-10 flex items-center justify-end text-xl 2xl:text-xl py-2 md:py-6 lg:py-6 xl:py-10"
     >
       <!-- Logo -->
       <NuxtLink
@@ -63,23 +63,26 @@ const textClass = computed(() => (props.theme === 'dark' ? 'text-gray-900' : 'te
         :to="homeHref"
         class="flex items-center gap-2 shrink-0 absolute left-1/2 -translate-x-1/2 mr-0"
       >
-        <BrandLogoText :variant="logoVariant" class="h-8 sm:h-8 md:h-8 lg:h-9 w-auto" />
+        <BrandLogoText
+          :variant="logoVariant"
+          class="h-8 sm:h-8 md:h-8 lg:h-9 w-auto xl:h-12 2xl:h-15"
+        />
       </NuxtLink>
 
       <!-- Desktop nav -->
-      <div class="flex items-center gap-4 hidden md:flex">
+      <div class="items-center gap-4 hidden md:flex">
         <a
           href="https://wa.me/995XXXXXXXXX"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Contact us on WhatsApp"
-          :class="[textClass, 'font-medium transition-colors opacity-85 hover:opacity-100']"
+          :class="[textClass, 'transition-opacity opacity-100 hover:opacity-70']"
           >{{ t('nav.whatsapp') }}</a
         >
         <nav class="hidden md:flex items-center gap-8 mr-6" aria-label="Main navigation">
           <NuxtLink
             to="#contact"
-            :class="[textClass, 'font-medium transition-colors opacity-85 hover:opacity-100']"
+            :class="[textClass, 'transition-opacity opacity-100 hover:opacity-70']"
             >{{ t('nav.enquire') }}
           </NuxtLink>
         </nav>
@@ -90,10 +93,7 @@ const textClass = computed(() => (props.theme === 'dark' ? 'text-gray-900' : 'te
         <div class="relative">
           <button
             type="button"
-            :class="[
-              textClass,
-              'w-[3rem] flex items-center gap-1 py-1font-semibold transition-colors',
-            ]"
+            :class="[textClass, 'min-w-12 flex items-center gap-1 py-1 cursor-pointer']"
             :aria-expanded="isLangOpen"
             aria-haspopup="listbox"
             @click="toggleLang"
@@ -123,14 +123,14 @@ const textClass = computed(() => (props.theme === 'dark' ? 'text-gray-900' : 'te
             <ul
               v-if="isLangOpen"
               role="listbox"
-              class="absolute right-0 top-full mt-1 min-w-[3rem] py-1 bg-transparent"
+              class="absolute right-0 top-full mt-1 min-w-12 py-1 bg-transparent"
             >
               <li
                 v-for="loc in otherLocales"
                 :key="loc.code"
                 role="option"
                 aria-selected="false"
-                class="py-1.5 cursor-pointer transition-colors"
+                class="py-1.5 cursor-pointer transition-opacity opacity-100 hover:opacity-70"
                 @click="updateLocale(loc.code)"
               >
                 {{ loc.code.toUpperCase() }}
@@ -143,8 +143,8 @@ const textClass = computed(() => (props.theme === 'dark' ? 'text-gray-900' : 'te
       <!-- Mobile menu toggle -->
       <button
         type="button"
-        class="relative z-[60] p-2 transition-colors duration-200 md:hidden"
-        :class="isMenuOpen ? 'text-gray-900' : textClass"
+        class="relative z-60 p-2 transition-colors duration-200 md:hidden"
+        :class="isMenuOpen ? 'text-ink' : textClass"
         aria-label="Toggle menu"
         :aria-expanded="isMenuOpen"
         @click="toggleMenu"
@@ -179,7 +179,7 @@ const textClass = computed(() => (props.theme === 'dark' ? 'text-gray-900' : 'te
     <Transition name="mobile-menu">
       <div
         v-if="isMenuOpen"
-        class="absolute inset-x-0 z-50 bg-white/20 px-4 py-5 text-gray-900 backdrop-blur-md md:hidden"
+        class="absolute inset-x-0 z-50 bg-white/20 px-4 py-5 text-ink backdrop-blur-md md:hidden"
         :class="props.floating ? 'top-0' : 'top-full'"
       >
         <nav class="flex flex-col gap-3" aria-label="Mobile navigation">
@@ -188,7 +188,7 @@ const textClass = computed(() => (props.theme === 'dark' ? 'text-gray-900' : 'te
           }}</a>
           <a
             href="#contact"
-            class="text-xl font-medium transition-colors hover:text-gray-600"
+            class="text-xl transition-colors hover:text-gray-600"
             @click="isMenuOpen = false"
             >{{ t('nav.enquire') }}</a
           >
@@ -199,7 +199,7 @@ const textClass = computed(() => (props.theme === 'dark' ? 'text-gray-900' : 'te
             v-for="loc in locales"
             :key="loc.code"
             class="text-xl font-semibold transition-colors"
-            :class="loc.code === locale ? 'text-gray-900' : 'text-gray-600 hover:text-gray-900'"
+            :class="loc.code === locale ? 'text-ink' : 'text-gray-600 hover:text-gray-900'"
             @click="updateLocale(loc.code)"
           >
             {{ loc.code.toUpperCase() }}

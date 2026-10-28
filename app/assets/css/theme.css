@@ -1,0 +1,31 @@
+@theme {
+  /* palette: raw colors of this project, numbered by importance */
+  --color-c1: #14315c; /* navy Blue - the only main color */
+  --color-c2: #b9975b; /* gold ??*/
+  --color-c3: #f8f7f3; /* white */
+  --color-c4: #e7e1d5; /* stone??? */
+  --color-c5: #0f172a; /* ink??? */
+
+  /* roles: same names in every project, only the link to the palette changes */
+  --color-main: var(--color-c1); /* the only main color */
+  --color-ink: var(--color-c1); /* for body main text */
+  --color-paper: var(--color-c3); /* for body main background */
+  --color-pop: var(--color-c2);
+
+  --color-soft: var(--color-c4);
+
+  --color-line: color-mix(in oklab, var(--color-c4), black 8%);
+  --color-muted: color-mix(in oklab, var(--color-c1), white 45%);
+  --color-main-dim: color-mix(in oklab, var(--color-c1), black 25%);
+  --color-pop-dim: color-mix(in oklab, var(--color-c2), black 15%);
+
+  /* fonts */
+  --font-body: 'Futura PT', 'Futura', 'Trebuchet MS', sans-serif;
+  --font-head: 'Futura PT', 'Futura', 'Trebuchet MS', sans-serif;
+}
+
+/* Georgian overrides */
+html:lang(ka) {
+  --font-body: 'DejaVuSans', sans-serif;
+  --font-head: 'bpg-web-002-caps', sans-serif;
+}

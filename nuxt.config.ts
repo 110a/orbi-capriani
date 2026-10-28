@@ -1,13 +1,21 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import tailwindcss from '@tailwindcss/vite'
+
+// Must end with a trailing slash.
+const base = process.env.NUXT_APP_BASE_URL || '/'
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   css: ['~/assets/css/fonts.css', '~/assets/css/tailwind.css'],
+  vite: {
+    plugins: [tailwindcss()],
+  },
   nitro: {
     preset: 'static',
   },
   app: {
-    baseURL: process.env.NUXT_APP_BASE_URL || '/',
+    baseURL: base,
     head: {
       titleTemplate: '%s | Capriani Batumi',
       meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
@@ -15,28 +23,26 @@ export default defineNuxtConfig({
         {
           rel: 'icon',
           type: 'image/png',
-          href: `${process.env.NUXT_APP_BASE_URL || '/'}/images/favicon/favicon-96x96.png`,
+          href: `${base}images/favicon/favicon-96x96.png`,
           sizes: '96x96',
         },
         {
           rel: 'icon',
           type: 'image/svg+xml',
-          href: `${process.env.NUXT_APP_BASE_URL || '/'}/images/favicon/favicon.svg`,
+          href: `${base}images/favicon/favicon.svg`,
         },
         {
           rel: 'shortcut icon',
-          href: '/images/favicon/favicon.ico',
-          href: `${process.env.NUXT_APP_BASE_URL || '/'}/images/favicon/favicon.ico`,
+          href: `${base}images/favicon/favicon.ico`,
         },
         {
           rel: 'apple-touch-icon',
           sizes: '180x180',
-          href: `${process.env.NUXT_APP_BASE_URL || '/'}/images/favicon/apple-touch-icon.png`,
+          href: `${base}images/favicon/apple-touch-icon.png`,
         },
         {
           rel: 'manifest',
-          href: `${process.env.NUXT_APP_BASE_URL || '/'}/
-        images/favicon/site.webmanifest`,
+          href: `${base}images/favicon/site.webmanifest`,
         },
       ],
     },
@@ -52,9 +58,6 @@ export default defineNuxtConfig({
   },
   sitemap: {
     autoLastmod: true,
-  },
-  robots: {
-    enabled: true,
   },
   fonts: {
     families: [
@@ -76,7 +79,6 @@ export default defineNuxtConfig({
     lazy: true,
   },
   modules: [
-    '@nuxtjs/tailwindcss',
     '@nuxt/content',
     '@nuxt/image',
     '@nuxt/fonts',

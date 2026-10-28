@@ -2,13 +2,14 @@
 import Header from '../layouts/Header.vue'
 import ContactSection from '../components/sections/Contact.vue'
 import HeroVideo from '../components/sections/HeroVideo.vue'
+import HeroSlider from '../components/sections/HeroSlider.vue'
 import TwoColumnSection from '../components/sections/TwoColumn.vue'
 
 const { t } = useI18n()
 
 useSiteMeta({
   title: 'Home',
-  description: 'One-page marketing template powered by Nuxt 4 and Tailwind CSS.',
+  description: 'powered by Nuxt 4 and Tailwind CSS.',
 })
 
 const { initAnalytics } = useAnalytics()
@@ -43,7 +44,7 @@ const sections = computed(() =>
     <HeroVideo />
 
     <div class="relative z-30 bg-white">
-      <div class="mx-auto py-2 md:py-2 lg:py-4" id="header">
+      <div class="py-2 2xl:py-4" id="header">
         <Header :floating="false" as="div" theme="dark" />
       </div>
       <TwoColumnSection

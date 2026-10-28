@@ -8,8 +8,8 @@ import LogoFull from '../ui/logo/LogoFull.vue'
       <video
         class="h-full w-full object-cover object-center"
         autoplay
-        loop
         muted
+        loop
         playsinline
         preload="metadata"
         aria-hidden="true"

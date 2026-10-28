@@ -18,6 +18,7 @@
     "eyebrow": "Contact",
     "firstName": "First name",
     "surname": "Surname",
+    "country": "Country",
     "mail": "Mail",
     "phone": "Phone",
     "submit": "Submit"

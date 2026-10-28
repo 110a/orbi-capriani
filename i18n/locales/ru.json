@@ -18,6 +18,7 @@
     "eyebrow": "Контакт",
     "firstName": "Имя",
     "surname": "Фамилия",
+    "country": "Страна",
     "mail": "Email",
     "phone": "Телефон",
     "submit": "Отправить"

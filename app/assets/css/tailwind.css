@@ -1,18 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  :root {
-    --color-brand-ink: #0f172a;
-    --color-brand-ivory: #f8f6f0;
-    --color-brand-gold: #b9975b;
-    --color-brand-stone: #e7e1d5;
-    scroll-behavior: smooth;
-  }
-}
+@import 'tailwindcss';
+@import './theme.css';
+@import './base.css';
 
 @layer utilities {
+  /* end used colors */
   .bg-brand-ivory {
     background-color: var(--color-brand-ivory);
   }
@@ -20,39 +11,14 @@
   .text-brand-ink {
     color: var(--color-brand-ink);
   }
-
-  .text-brand-gold {
-    color: var(--color-brand-gold);
-  }
-
-  .border-brand-stone {
-    border-color: var(--color-brand-stone);
-  }
 }
 
-@layer base {
-  body {
-    background-color: var(--color-brand-ivory);
-    color: var(--color-brand-ink);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  html:lang(ka) p {
-    /* letter-spacing: -0.02em; */
-  }
-
-  /* html:lang(en),
-  html:lang(ru) {
-    font-size: 100%;
-  } */
-
+/* @layer base {
   html:lang(en) body {
     font-family: 'Futura PT', 'Futura', 'Trebuchet MS', sans-serif;
   }
 
   html:lang(ka) body {
-    /* font-family: 'Noto Sans Georgian', sans-serif; */
     font-family: 'DejaVuSans', sans-serif;
   }
 
@@ -79,7 +45,6 @@
   header:lang(ka),
   button:lang(ka),
   .uppercase:lang(ka) {
-    /* font-family: 'DejaVuSans', sans-serif; */
     font-family: 'bpg-web-002-caps';
   }
 
@@ -92,7 +57,7 @@
     font-family: 'Futura PT', 'Futura', 'Trebuchet MS', sans-serif;
     font-weight: 500;
   }
-}
+} */
 .upercase {
   text-transform: uppercase;
   -moz-font-feature-settings: 'case';
