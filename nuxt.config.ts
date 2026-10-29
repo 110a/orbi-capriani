@@ -50,6 +50,9 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       analyticsId: process.env.NUXT_PUBLIC_ANALYTICS_ID || '',
+      apiBase: process.env.NUXT_PUBLIC_API_BASE || '',
+      contactEndpoint: process.env.NUXT_PUBLIC_CONTACT_ENDPOINT || '/api/contact',
+      recaptchaSiteKey: process.env.NUXT_PUBLIC_RECAPTCHA_SITE_KEY || '',
     },
   },
   site: {

@@ -1,0 +1,42 @@
+Key	English	Russian	Georgian
+nav.whatsapp	WHATSAPP	WHATSAPP	WHATSAPP
+nav.enquire	ENQUIRE	ЗАПРОС	მოთხოვნა
+footer.credits	Credits	Об авторах	კრედიტები
+footer.enquire	Enquire	Запрос	მოთხოვნა
+footer.privacy	Privacy Policy	Политика конфиденциальности	კონფიდენციალურობის პოლიტიკა
+footer.copyright	© {year} Cipriani USA, Inc. All rights reserved.	© {year} Cipriani USA, Inc. Все права защищены.	© {year} Cipriani USA, Inc. ყველა უფლება დაცულია.
+hero.prevSlide	Previous slide	Предыдущий слайд	წინა სლაიდი
+hero.nextSlide	Next slide	Следующий слайд	შემდეგი სლაიდი
+hero.goToSlide	Go to slide {n}	Перейти к слайду {n}	{n} სლაიდზე გადასვლა
+contact.title	Contact	Контакт	კონტაქტი
+contact.firstName	First name	Имя	სახელი
+contact.surname	Surname	Фамилия	გვარი
+contact.country	Country	Страна	ქვეყანა
+contact.mail	Mail	Email	ელ-ფოსტა
+contact.phone	Phone	Телефон	ტელეფონი
+contact.submit	Submit	Отправить	გაგზავნა
+contact.sending	Sending...	Отправка...	იგზავნება...
+contact.validation.firstName.required	First name is required.	Поле «Имя» обязательно.	ველი „სახელი“ სავალდებულოა.
+contact.validation.firstName.minLength	First name must be at least 2 characters.	Поле «Имя» должно содержать не менее 2 символов.	ველი „სახელი“ უნდა შეიცავდეს მინიმუმ 2 სიმბოლოს.
+contact.validation.firstName.maxLength	First name must not exceed 50 characters.	Поле «Имя» не должно превышать 50 символов.	ველი „სახელი“ არ უნდა აღემატებოდეს 50 სიმბოლოს.
+contact.validation.surname.required	Surname is required.	Поле «Фамилия» обязательно.	ველი „გვარი“ სავალდებულოა.
+contact.validation.surname.minLength	Surname must be at least 2 characters.	Поле «Фамилия» должно содержать не менее 2 символов.	ველი „გვარი“ უნდა შეიცავდეს მინიმუმ 2 სიმბოლოს.
+contact.validation.surname.maxLength	Surname must not exceed 50 characters.	Поле «Фамилия» не должно превышать 50 символов.	ველი „გვარი“ არ უნდა აღემატებოდეს 50 სიმბოლოს.
+contact.validation.country.required	Country is required.	Поле «Страна» обязательно.	ველი „ქვეყანა“ სავალდებულოა.
+contact.validation.country.minLength	Country must be at least 2 characters.	Поле «Страна» должно содержать не менее 2 символов.	ველი „ქვეყანა“ უნდა შეიცავდეს მინიმუმ 2 სიმბოლოს.
+contact.validation.country.maxLength	Country must not exceed 60 characters.	Поле «Страна» не должно превышать 60 символов.	ველი „ქვეყანა“ არ უნდა აღემატებოდეს 60 სიმბოლოს.
+contact.validation.email.required	Mail is required.	Поле «Email» обязательно.	ველი „ელ-ფოსტა“ სავალდებულოა.
+contact.validation.email.format	Enter a valid email address.	Введите корректный адрес электронной почты.	შეიყვანეთ სწორი ელ-ფოსტის მისამართი.
+contact.validation.email.maxLength	Mail must not exceed 100 characters.	Поле «Email» не должно превышать 100 символов.	ველი „ელ-ფოსტა“ არ უნდა აღემატებოდეს 100 სიმბოლოს.
+contact.validation.phone.minLength	Phone must be at least 7 characters.	Поле «Телефон» должно содержать не менее 7 символов.	ველი „ტელეფონი“ უნდა შეიცავდეს მინიმუმ 7 სიმბოლოს.
+contact.validation.phone.maxLength	Phone must not exceed 20 characters.	Поле «Телефон» не должно превышать 20 символов.	ველი „ტელეფონი“ არ უნდა აღემატებოდეს 20 სიმბოლოს.
+contact.validation.phone.format	Enter a valid phone number.	Введите корректный номер телефона.	შეიყვანეთ სწორი ტელეფონის ნომერი.
+contact.validation.invalid	{field} is invalid.	Поле «{field}» содержит недопустимое значение.	ველი „{field}“ არასწორია.
+contact.feedback.invalid	Please correct the highlighted fields.	Исправьте выделенные поля.	გაასწორეთ მონიშნული ველები.
+contact.feedback.ready	Your message is ready to send.	Ваше сообщение готово к отправке.	თქვენი შეტყობინება გასაგზავნად მზადაა.
+contact.feedback.success	Thank you. Your message has been sent.	Спасибо. Ваше сообщение отправлено.	გმადლობთ. თქვენი შეტყობინება გაიგზავნა.
+contact.feedback.recaptchaError	Security verification failed. Please try again.	Проверка безопасности не пройдена. Попробуйте ещё раз.	უსაფრთხოების შემოწმება ვერ შესრულდა. სცადეთ ხელახლა.
+contact.feedback.rateLimited	Too many requests. Please try again later.	Слишком много запросов. Повторите попытку позже.	მოთხოვნების რაოდენობა გადაჭარბებულია. სცადეთ მოგვიანებით.
+contact.feedback.serverError	We could not send your message. Please try again later.	Не удалось отправить сообщение. Попробуйте позже.	შეტყობინების გაგზავნა ვერ მოხერხდა. სცადეთ მოგვიანებით.
+contact.feedback.requestError	We could not send your message. Please try again.	Не удалось отправить сообщение. Попробуйте ещё раз.	შეტყობინების გაგზავნა ვერ მოხერხდა. სცადეთ ხელახლა.
+privacy.title	Privacy Policy	Политика конфиденциальности	კონფიდენციალურობის პოლიტიკა

@@ -2,10 +2,7 @@
 import Header from '../layouts/Header.vue'
 import ContactSection from '../components/sections/Contact.vue'
 import HeroVideo from '../components/sections/HeroVideo.vue'
-import HeroSlider from '../components/sections/HeroSlider.vue'
 import TwoColumnSection from '../components/sections/TwoColumn.vue'
-
-const { t } = useI18n()
 
 useSiteMeta({
   title: 'Home',
@@ -15,27 +12,7 @@ useSiteMeta({
 const { initAnalytics } = useAnalytics()
 initAnalytics()
 
-type SectionKey = 'about' | 'location' | 'experience'
-
-const sectionMeta = [
-  { sectionId: 'about' as SectionKey, image: '/images/5.png', imagePosition: 'right' as const },
-  { sectionId: 'location' as SectionKey, image: '/images/6.png', imagePosition: 'left' as const },
-  {
-    sectionId: 'experience' as SectionKey,
-    image: '/images/7.png',
-    imagePosition: 'right' as const,
-  },
-]
-
-const sections = computed(() =>
-  sectionMeta.map((meta) => ({
-    ...meta,
-    eyebrow: t(`sections.${meta.sectionId}.eyebrow`),
-    title: t(`sections.${meta.sectionId}.title`),
-    body: t(`sections.${meta.sectionId}.body`),
-    imageCaption: t(`sections.${meta.sectionId}.imageCaption`),
-  })),
-)
+const { sections } = useSections()
 </script>
 
 <template>
@@ -43,21 +20,19 @@ const sections = computed(() =>
   <main>
     <HeroVideo />
 
-    <div class="relative z-30 bg-white">
+    <div class="relative z-30 bg-paper">
       <div class="py-2 2xl:py-4" id="header">
         <Header :floating="false" as="div" theme="dark" />
       </div>
       <TwoColumnSection
         v-for="(section, index) in sections"
-        :key="section.sectionId"
-        :section-id="section.sectionId"
-        :eyebrow="section.eyebrow"
+        :key="section.id"
+        :section-id="section.id"
         :title="section.title"
         :body="section.body"
-        :image="section.image"
+        :media="section.media"
         :image-position="section.imagePosition"
         :index="index"
-        :image-caption="section.imageCaption"
       />
 
       <ContactSection />

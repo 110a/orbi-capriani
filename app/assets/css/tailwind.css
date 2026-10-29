@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 @import './theme.css';
 @import './base.css';
+@plugin "@tailwindcss/typography";
 
 @layer utilities {
   /* end used colors */
@@ -13,51 +14,6 @@
   }
 }
 
-/* @layer base {
-  html:lang(en) body {
-    font-family: 'Futura PT', 'Futura', 'Trebuchet MS', sans-serif;
-  }
-
-  html:lang(ka) body {
-    font-family: 'DejaVuSans', sans-serif;
-  }
-
-  html:lang(ru) body {
-    font-family: 'Futura PT', 'Futura', 'Trebuchet MS', sans-serif;
-  }
-
-  html:lang(en) h1,
-  html:lang(en) h2,
-  html:lang(en) h3,
-  html:lang(en) h4,
-  html:lang(en) h5,
-  html:lang(en) h6 {
-    font-family: 'Futura PT', 'Futura', 'Trebuchet MS', sans-serif;
-    font-weight: 500;
-  }
-
-  html:lang(ka) h1,
-  html:lang(ka) h2,
-  html:lang(ka) h3,
-  html:lang(ka) h4,
-  html:lang(ka) h5,
-  html:lang(ka) h6,
-  header:lang(ka),
-  button:lang(ka),
-  .uppercase:lang(ka) {
-    font-family: 'bpg-web-002-caps';
-  }
-
-  html:lang(ru) h1,
-  html:lang(ru) h2,
-  html:lang(ru) h3,
-  html:lang(ru) h4,
-  html:lang(ru) h5,
-  html:lang(ru) h6 {
-    font-family: 'Futura PT', 'Futura', 'Trebuchet MS', sans-serif;
-    font-weight: 500;
-  }
-} */
 .upercase {
   text-transform: uppercase;
   -moz-font-feature-settings: 'case';

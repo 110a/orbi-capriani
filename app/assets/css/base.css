@@ -2,6 +2,9 @@
   html {
     scroll-behavior: smooth;
   }
+  html:lang(ka) {
+    font-feature-settings: 'case' on;
+  }
   body {
     background-color: var(--color-paper);
     color: var(--color-ink);
@@ -23,6 +26,13 @@
   .uppercase:lang(ka) {
     font-family: var(--font-head);
   }
+  .prose strong,
+  .prose b {
+    font-weight: 600;
+  }
+  /* .prose strong:lang(ka) {
+    font-weight: 200;
+  } */
 
   /* html:lang(en) body {
     font-family: 'Futura PT', 'Futura', 'Trebuchet MS', sans-serif;
@@ -76,7 +86,10 @@
     scroll-behavior: smooth;
   } */
 }
-@utility caps {
+/* @utility caps {
   text-transform: uppercase;
   font-feature-settings: 'case' on;
+} */
+.grecaptcha-badge {
+  visibility: hidden;
 }
