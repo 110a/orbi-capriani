@@ -68,17 +68,17 @@ img {
 
 .logo-icon {
   clip-path: inset(0 0 52% 0);
-  animation: revealLogoPart 0.9s ease-out 0.5s forwards;
+  animation: revealLogoPart 1.1s ease-in-out 0.5s forwards;
 }
 
 .logo-wordmark {
   clip-path: inset(47% 0 26% 0);
-  animation: revealLogoPart 0.8s ease-out 1.45s forwards;
+  animation: revealLogoPart 1.1s ease-in-out 1.2s forwards;
 }
 
 .logo-detail {
   clip-path: inset(72% 0 0 0);
-  animation: revealLogoPart 0.8s ease-out 2.2s forwards;
+  animation: revealLogoPart 1.1s ease-in-out 1.9s forwards;
 }
 
 .coming-soon {
