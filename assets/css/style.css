@@ -13,9 +13,8 @@ body {
   font-style: normal;
 }
 /* reset */
-h1,
 p {
-  margin: 0px;
+  margin: 0;
 }
 img {
   width: 100%;
@@ -27,7 +26,7 @@ img {
   height: 100dvh;
 
   /* mobile default */
-  background-image: url("../img/cipriani.png");
+  background-image: url("../img/cipriani-1080x1920.webp");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -45,13 +44,6 @@ img {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-}
-/* ── Overlay content ── */
-.hero-overlay {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  padding: 1rem;
 }
 .hero-content {
   display: flex;
@@ -89,9 +81,9 @@ img {
   animation: revealLogoPart 0.8s ease-out 2.2s forwards;
 }
 
-.comin-soon {
-  margin-top: 1rem;
-  width: clamp(180px, 22vw, 200px);
+.coming-soon {
+  margin-top: 4rem;
+  width: clamp(110px, 22vw, 140px);
   text-align: center;
 }
 
@@ -137,30 +129,10 @@ img {
   animation-delay: 4.72s;
 }
 
-.hero-overlay p {
-  margin: 0;
-  font-size: clamp(0.9rem, 2.5vw, 1.5rem);
-}
-/* tablets & laptops */
-@media (min-width: 768px) {
-  /* .fullscreen-hero {
-    background-image: url("../img/biennial-2560.webp");
-  } */
-  .hero-overlay {
-    padding: 2rem;
-  }
-}
-
 /* large desktops */
 @media (min-width: 1441px) {
-  .hero-overlay {
-    padding: 3rem;
-  }
   .hero-logo {
     width: clamp(400px, 32vw, 640px);
-  }
-  .hero-overlay p {
-    font-size: clamp(1.25rem, 2vw, 2rem);
   }
 }
 /* The Animations */
@@ -198,5 +170,15 @@ img {
   .coming-soon-svg path {
     animation: none;
     opacity: 1;
+  }
+}
+@media (orientation: landscape) {
+  .fullscreen-hero {
+    background-image: url("../img/cipriani-1920x1080.webp");
+  }
+}
+@media (min-width: 1800px) {
+  .fullscreen-hero {
+    background-image: url("../img/cipriani-3840x2160.webp");
   }
 }
