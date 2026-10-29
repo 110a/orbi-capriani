@@ -1,6 +1,6 @@
 import type {
   ApiMedia,
-  ApiSectionsResponse,
+  ApiHomeResponse,
   ImageVersion,
   Locale,
   SectionMedia,
@@ -39,7 +39,7 @@ function pickVersion(versions: ImageVersion[]): ImageVersion | null {
   return sorted.find((v) => v.width >= 800) ?? sorted.at(-1) ?? null
 }
 
-function mapMedia(
+export function mapMedia(
   media: ApiMedia | undefined,
   locale: Locale,
   baseURL: string,
@@ -80,7 +80,7 @@ function mapMedia(
 }
 
 export function mapSections(
-  response: ApiSectionsResponse,
+  response: ApiHomeResponse,
   locale: Locale,
   baseURL: string,
 ): SectionView[] {

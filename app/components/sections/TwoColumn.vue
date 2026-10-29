@@ -55,7 +55,7 @@ const isReversed = computed(() => {
           />
           <figcaption
             v-if="props.media.caption"
-            class="text-lg text-white absolute bottom-2 left-3 z-10 font-medium"
+            class="text-base sm:text-lg text-white absolute bottom-2 left-3 z-10 font-medium pr-4 leading-tight"
           >
             {{ props.media.caption }}
           </figcaption>

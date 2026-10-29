@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import { useSiteData } from '~/composables/useSiteData'
+
 const { t } = useI18n()
 const config = useRuntimeConfig()
+const { contact } = useSiteData()
 const isImageLoaded = ref(false)
 const form = reactive({
   firstName: '',
@@ -242,10 +245,12 @@ const props = withDefaults(
   }>(),
   {
     sectionId: 'contact',
-    image: '/images/8.png',
-    imageCaption: 'Cipriani Residences Batumi',
   },
 )
+
+const contactImage = computed(() => props.image ?? contact.value.image?.src ?? '')
+const contactImageAlt = computed(() => contact.value.image?.alt ?? t('contact.title'))
+const contactImageCaption = computed(() => props.imageCaption ?? contact.value.image?.caption ?? '')
 </script>
 
 <template>
@@ -256,8 +261,8 @@ const props = withDefaults(
       <div class="relative w-full max-w-xl overflow-hidden lg:max-w-none lg:py-10">
         <figure class="relative aspect-4/5 bg-paper">
           <NuxtImg
-            :src="props.image"
-            alt="Contact"
+            :src="contactImage"
+            :alt="contactImageAlt"
             class="h-full w-full object-cover object-center opacity-0 transition-opacity duration-500"
             :class="{ 'opacity-100': isImageLoaded }"
             loading="lazy"
@@ -265,10 +270,10 @@ const props = withDefaults(
             @load="isImageLoaded = true"
           />
           <figcaption
-            v-if="props.imageCaption"
-            class="text-lg text-white absolute bottom-2 left-3 z-10 font-medium"
+            v-if="contactImageCaption"
+            class="text-base sm:text-lg text-white absolute bottom-2 left-3 z-10 font-medium pr-4 leading-tight"
           >
-            {{ props.imageCaption }}
+            {{ contactImageCaption }}
           </figcaption>
         </figure>
       </div>

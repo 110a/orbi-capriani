@@ -1,6 +1,6 @@
-import type { ApiSectionsResponse } from '~/types/content'
+import type { ApiHomeResponse } from '~/types/content'
 
-export const sectionsMock: ApiSectionsResponse = {
+export const sectionsMock: ApiHomeResponse = {
   data: {
     sections: [
       {
