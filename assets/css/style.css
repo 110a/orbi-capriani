@@ -1,0 +1,202 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color: #f8f7f3;
+  background-color: #14315c;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+/* reset */
+h1,
+p {
+  margin: 0px;
+}
+img {
+  width: 100%;
+}
+
+/* ── Fullscreen hero ── */
+.fullscreen-hero {
+  width: 100vw;
+  height: 100dvh;
+
+  /* mobile default */
+  background-image: url("../img/cipriani.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* overlay content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /*animation*/
+  animation: fadeInImage 1.5s ease-in-out forwards;
+}
+.hero-center-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+/* ── Overlay content ── */
+.hero-overlay {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+}
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.hero-logo {
+  width: clamp(200px, 30vw, 560px);
+  aspect-ratio: 525 / 334;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.logo-part {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  opacity: 0;
+  transform: translateY(0.75rem);
+}
+
+.logo-icon {
+  clip-path: inset(0 0 52% 0);
+  animation: revealLogoPart 0.9s ease-out 0.5s forwards;
+}
+
+.logo-wordmark {
+  clip-path: inset(47% 0 26% 0);
+  animation: revealLogoPart 0.8s ease-out 1.45s forwards;
+}
+
+.logo-detail {
+  clip-path: inset(72% 0 0 0);
+  animation: revealLogoPart 0.8s ease-out 2.2s forwards;
+}
+
+.comin-soon {
+  margin-top: 1rem;
+  width: clamp(180px, 22vw, 200px);
+  text-align: center;
+}
+
+.coming-soon-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.coming-soon-svg path {
+  opacity: 0;
+  animation: fadeInCharacter 0.55s ease-in-out forwards;
+}
+
+.coming-soon-svg path:nth-child(1) {
+  animation-delay: 3.1s;
+}
+.coming-soon-svg path:nth-child(2) {
+  animation-delay: 3.28s;
+}
+.coming-soon-svg path:nth-child(3) {
+  animation-delay: 3.46s;
+}
+.coming-soon-svg path:nth-child(4) {
+  animation-delay: 3.64s;
+}
+.coming-soon-svg path:nth-child(5) {
+  animation-delay: 3.82s;
+}
+.coming-soon-svg path:nth-child(6) {
+  animation-delay: 4s;
+}
+.coming-soon-svg path:nth-child(7) {
+  animation-delay: 4.18s;
+}
+.coming-soon-svg path:nth-child(8) {
+  animation-delay: 4.36s;
+}
+.coming-soon-svg path:nth-child(9) {
+  animation-delay: 4.54s;
+}
+.coming-soon-svg path:nth-child(10) {
+  animation-delay: 4.72s;
+}
+
+.hero-overlay p {
+  margin: 0;
+  font-size: clamp(0.9rem, 2.5vw, 1.5rem);
+}
+/* tablets & laptops */
+@media (min-width: 768px) {
+  /* .fullscreen-hero {
+    background-image: url("../img/biennial-2560.webp");
+  } */
+  .hero-overlay {
+    padding: 2rem;
+  }
+}
+
+/* large desktops */
+@media (min-width: 1441px) {
+  .hero-overlay {
+    padding: 3rem;
+  }
+  .hero-logo {
+    width: clamp(400px, 32vw, 640px);
+  }
+  .hero-overlay p {
+    font-size: clamp(1.25rem, 2vw, 2rem);
+  }
+}
+/* The Animations */
+@keyframes fadeInImage {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInCharacter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes revealLogoPart {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-part,
+  .coming-soon-svg path {
+    animation: none;
+    opacity: 1;
+  }
+}
