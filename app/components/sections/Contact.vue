@@ -5,6 +5,7 @@ const { t } = useI18n()
 const config = useRuntimeConfig()
 const { contact } = useSiteData()
 const isImageLoaded = ref(false)
+const contactImageRef = ref<{ $el?: HTMLImageElement } | null>(null)
 const form = reactive({
   firstName: '',
   surname: '',
@@ -44,6 +45,30 @@ useHead({
         },
       ]
     : [],
+})
+
+async function handleContactImageLoad() {
+  const image = contactImageRef.value?.$el
+  if (!image || image.naturalWidth === 0) return
+
+  try {
+    await image.decode()
+  } catch {
+    // The browser can reject decoding for already-renderable images.
+  }
+
+  if (image.naturalWidth > 0) {
+    isImageLoaded.value = true
+  }
+}
+
+onMounted(async () => {
+  await nextTick()
+
+  const image = contactImageRef.value?.$el
+  if (image?.complete && image.naturalWidth > 0) {
+    void handleContactImageLoad()
+  }
 })
 
 function clearErrors() {
@@ -261,13 +286,14 @@ const contactImageCaption = computed(() => props.imageCaption ?? contact.value.i
       <div class="relative w-full max-w-xl overflow-hidden lg:max-w-none lg:py-10">
         <figure class="relative aspect-4/5 bg-paper">
           <NuxtImg
+            ref="contactImageRef"
             :src="contactImage"
             :alt="contactImageAlt"
             class="h-full w-full object-cover object-center opacity-0 transition-opacity duration-500"
             :class="{ 'opacity-100': isImageLoaded }"
             loading="lazy"
             decoding="async"
-            @load="isImageLoaded = true"
+            @load="handleContactImageLoad"
           />
           <figcaption
             v-if="contactImageCaption"

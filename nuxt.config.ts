@@ -6,7 +6,7 @@ const base = process.env.NUXT_APP_BASE_URL || '/'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   css: ['~/assets/css/fonts.css', '~/assets/css/tailwind.css'],
   vite: {
     plugins: [tailwindcss()],

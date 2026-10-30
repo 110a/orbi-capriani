@@ -1,11 +1,28 @@
 <script setup lang="ts">
 import LogoFull from '../ui/logo/LogoFull.vue'
+
+const video = ref<HTMLVideoElement | null>(null)
+
+function playHeroVideo() {
+  const element = video.value
+  if (!element) return
+
+  element.muted = true
+  element.defaultMuted = true
+  element.playsInline = true
+  void element.play().catch(() => {})
+}
+
+onMounted(() => {
+  playHeroVideo()
+})
 </script>
 
 <template>
   <div class="relative isolate h-[100svh] min-h-[640px] overflow-hidden text-white">
     <div class="fixed inset-0 z-0">
       <video
+        ref="video"
         class="h-full w-full object-cover object-center"
         autoplay
         muted
@@ -13,6 +30,7 @@ import LogoFull from '../ui/logo/LogoFull.vue'
         playsinline
         preload="metadata"
         aria-hidden="true"
+        @canplay="playHeroVideo"
       >
         <source src="/video/hero_video.mp4" type="video/mp4" />
       </video>

@@ -54,10 +54,10 @@ export const sectionsMock: ApiHomeResponse = {
             poster: {
               type: 'image',
               versions: [
-                { url: '/images/8-480.webp', width: 480 },
-                { url: '/images/8-800.webp', width: 800 },
-                { url: '/images/8-1200.webp', width: 1200 },
-                { url: '/images/8-1600.webp', width: 1600 },
+                { url: '/images/belini-1920.webp', width: 480 },
+                { url: '/images/belini-1920.webp', width: 800 },
+                { url: '/images/belini-1920.webp', width: 1200 },
+                { url: '/images/belini-1920.webp', width: 1600 },
               ],
               translations: {
                 en: {
