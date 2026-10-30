@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { SectionMedia } from '~/types/content'
+import type { SectionMedia, VideoVersion } from '~/types/content'
 
 const isLoaded = ref(false)
 const isPosterLoaded = ref(false)
@@ -10,19 +10,9 @@ const imgRef = ref<HTMLImageElement | null>(null)
 const posterRef = ref<{ $el?: HTMLImageElement } | null>(null)
 const containerRef = ref<HTMLElement | null>(null)
 const video = ref<HTMLVideoElement | null>(null)
+const selectedVideoSource = ref<VideoVersion | null>(null)
 let preloadObserver: IntersectionObserver | undefined
 let playObserver: IntersectionObserver | undefined
-
-// Prefer a higher-resolution file for larger or high-density screens.
-// The smallest available version has no media query and is the fallback.
-function videoSourceMedia(width: number, isFallback: boolean): string | undefined {
-  if (isFallback) return undefined
-
-  const standardScreenWidth = Math.ceil(width / 1.5)
-  const retinaScreenWidth = Math.ceil(width / 2)
-
-  return `(min-width: ${standardScreenWidth}px), (min-resolution: 2dppx) and (min-width: ${retinaScreenWidth}px)`
-}
 
 async function handleImageLoad() {
   const image = imgRef.value
@@ -89,6 +79,15 @@ const props = withDefaults(
   { sizes: '100vw' },
 )
 
+function selectVideoSource() {
+  if (props.media.kind !== 'video') return
+
+  const requiredWidth = window.innerWidth * window.devicePixelRatio
+  const sources = [...props.media.sources].sort((first, second) => first.width - second.width)
+  selectedVideoSource.value =
+    sources.find((source) => source.width >= requiredWidth) ?? sources.at(-1) ?? null
+}
+
 onMounted(async () => {
   if (imgRef.value?.complete && imgRef.value.naturalWidth > 0) {
     void handleImageLoad()
@@ -100,6 +99,9 @@ onMounted(async () => {
   if (poster?.complete && poster.naturalWidth > 0) {
     void handlePosterLoad()
   }
+
+  selectVideoSource()
+  await nextTick()
 
   const element = video.value
   const container = containerRef.value
@@ -181,27 +183,28 @@ onBeforeUnmount(() => {
         @error="isPosterFailed = true"
       />
 
-      <video
-        ref="video"
-        :loop="media.loop"
-        muted
-        playsinline
-        webkit-playsinline
-        preload="auto"
-        aria-hidden="true"
-        class="absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"
-        :class="isVideoReady ? 'opacity-100' : 'opacity-0'"
-        @canplay="handleVideoCanPlay"
-        @playing="isVideoReady = true"
-      >
-        <source
-          v-for="(file, index) in media.sources"
-          :key="file.url"
-          :src="file.url"
-          :type="file.mime"
-          :media="videoSourceMedia(file.width, index === media.sources.length - 1)"
-        />
-      </video>
+      <ClientOnly>
+        <video
+          ref="video"
+          :loop="media.loop"
+          muted
+          autoplay
+          playsinline
+          webkit-playsinline
+          preload="auto"
+          aria-hidden="true"
+          class="absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"
+          :class="isVideoReady ? 'opacity-100' : 'opacity-0'"
+          @canplay="handleVideoCanPlay"
+          @playing="isVideoReady = true"
+        >
+          <source
+            v-if="selectedVideoSource"
+            :src="`${selectedVideoSource.url}#t=0.001`"
+            :type="selectedVideoSource.mime"
+          />
+        </video>
+      </ClientOnly>
     </template>
   </div>
 </template>

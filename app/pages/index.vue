@@ -19,7 +19,7 @@ const { sections } = useSections()
 <template>
   <Header :show-logo="false" theme="light" />
   <main>
-    <!-- <HeroVideo /> -->
+    <HeroVideo />
 
     <div class="relative z-30 bg-paper">
       <div class="py-2 2xl:py-4" id="header">
