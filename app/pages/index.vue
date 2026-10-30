@@ -5,8 +5,9 @@ import HeroVideo from '../components/sections/HeroVideo.vue'
 import TwoColumnSection from '../components/sections/TwoColumn.vue'
 
 useSiteMeta({
-  title: 'Home',
-  description: 'powered by Nuxt 4 and Tailwind CSS.',
+  title: 'Cipriani Residences Batumi | Coming Soon',
+  description:
+    'Cipriani Batumi, Cipriani Georgia, luxury hotel Batumi, Cipriani hospitality, Cipriani Residences Batumi, luxury residences Batumi.',
 })
 
 const { initAnalytics } = useAnalytics()
