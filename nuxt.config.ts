@@ -56,7 +56,7 @@ export default defineNuxtConfig({
     },
   },
   site: {
-    url: 'https://example.com',
+    url: 'https://110a.github.io/orbi-capriani/',
     name: 'Capriani Batumi',
   },
   sitemap: {
@@ -71,6 +71,7 @@ export default defineNuxtConfig({
     ],
   },
   i18n: {
+    baseUrl: 'https://110a.github.io/orbi-capriani/',
     locales: [
       { code: 'en', language: 'en-US', name: 'English', file: 'en.json' },
       { code: 'ru', language: 'ru-RU', name: 'Русский', file: 'ru.json' },

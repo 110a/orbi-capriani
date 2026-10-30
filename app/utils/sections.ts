@@ -72,7 +72,7 @@ export function mapMedia(
       ...version,
       url: withBase(version.url, baseURL),
     })),
-    poster: poster ? withBase(poster.url, baseURL) : null,
+    poster: poster?.url ?? null,
     loop: media.loop,
     alt,
     caption,

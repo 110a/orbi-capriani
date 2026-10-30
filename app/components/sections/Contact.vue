@@ -5,7 +5,7 @@ const { t } = useI18n()
 const config = useRuntimeConfig()
 const { contact } = useSiteData()
 const isImageLoaded = ref(false)
-const contactImageRef = ref<{ $el?: HTMLImageElement } | null>(null)
+const contactImageRef = ref<HTMLImageElement | null>(null)
 const form = reactive({
   firstName: '',
   surname: '',
@@ -48,7 +48,7 @@ useHead({
 })
 
 async function handleContactImageLoad() {
-  const image = contactImageRef.value?.$el
+  const image = contactImageRef.value
   if (!image || image.naturalWidth === 0) return
 
   try {
@@ -65,7 +65,7 @@ async function handleContactImageLoad() {
 onMounted(async () => {
   await nextTick()
 
-  const image = contactImageRef.value?.$el
+  const image = contactImageRef.value
   if (image?.complete && image.naturalWidth > 0) {
     void handleContactImageLoad()
   }
@@ -274,6 +274,7 @@ const props = withDefaults(
 )
 
 const contactImage = computed(() => props.image ?? contact.value.image?.src ?? '')
+const contactImageSrcset = computed(() => (props.image ? undefined : contact.value.image?.srcset))
 const contactImageAlt = computed(() => contact.value.image?.alt ?? t('contact.title'))
 const contactImageCaption = computed(() => props.imageCaption ?? contact.value.image?.caption ?? '')
 </script>
@@ -285,9 +286,11 @@ const contactImageCaption = computed(() => props.imageCaption ?? contact.value.i
     >
       <div class="relative w-full max-w-xl overflow-hidden lg:max-w-none lg:py-10">
         <figure class="relative aspect-4/5 bg-paper">
-          <NuxtImg
+          <img
             ref="contactImageRef"
             :src="contactImage"
+            :srcset="contactImageSrcset"
+            sizes="(min-width: 1024px) 50vw, 100vw"
             :alt="contactImageAlt"
             class="h-full w-full object-cover object-center opacity-0 transition-opacity duration-500"
             :class="{ 'opacity-100': isImageLoaded }"
