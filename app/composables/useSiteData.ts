@@ -15,6 +15,9 @@ export const useSiteData = () => {
 
   const settings = computed<SiteSettings>(() => ({
     whatsappUrl: siteMock.data.settings.whatsapp_url ?? '',
+    analyticsId: siteMock.data.settings.analytics_id ?? '',
+    headScripts: siteMock.data.scripts.head_scripts ?? [],
+    bodyEndScripts: siteMock.data.scripts.body_end_scripts ?? [],
   }))
 
   const contact = computed<ContactView>(() => {

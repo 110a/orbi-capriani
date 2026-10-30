@@ -1,75 +1,28 @@
-# Nuxt Minimal Starter
-
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+# Cipriani Batumi
 
 ## Setup
 
-Make sure to install dependencies:
-
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
 ## Development Server
 
-Start the development server on `http://localhost:3000`:
-
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+## Static Builds
 
-Build the application for production:
+Build the main domain with `npm run generate:prod`. Build the non-indexable subdomain with `npm run generate:dev`. Both commands write the static site to `.output/public/`.
+
+`SITE_URL` sets canonical, Open Graph, sitemap, and hreflang URLs. `SITE_INDEXABLE=false` adds `noindex, nofollow`, writes a blocking `robots.txt`, and omits the sitemap. `NUXT_PUBLIC_RECAPTCHA_SITE_KEY` is the public browser key only; keep the reCAPTCHA secret key on the backend.
+
+After a build, verify it with the matching profile and domain:
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+npx env-cmd -f .env.production npm run verify:build -- https://your-production-domain.com
+npx env-cmd -f .env.development npm run verify:build -- https://your-subdomain.example.com
 ```
 
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Upload only the CONTENTS of `.output/public/`, never the folder itself, and never upload a dev build to the production server.

@@ -60,10 +60,17 @@ export type ApiSection = {
 
 export type ApiSettings = {
   whatsapp_url: string | null
+  analytics_id?: string | null
 }
 
 export type ApiContact = {
   image: ApiImage | null
+}
+
+// Global scripts are returned with the shared site data.
+export type ApiScripts = {
+  head_scripts: string[] | null
+  body_end_scripts: string[] | null
 }
 
 // ---------- Privacy policy ----------
@@ -82,10 +89,11 @@ export type ApiHomeResponse = {
   }
 }
 
-// What the API returns for shared site data used across pages
+// What the API returns for shared global site data
 export type ApiSiteResponse = {
   data: {
     settings: ApiSettings
+    scripts: ApiScripts
     contact: ApiContact
   }
 }
@@ -137,6 +145,9 @@ export type SectionView = {
 
 export type SiteSettings = {
   whatsappUrl: string // empty text when the CMS has none
+  analyticsId: string
+  headScripts: string[]
+  bodyEndScripts: string[]
 }
 
 export type ContactView = {

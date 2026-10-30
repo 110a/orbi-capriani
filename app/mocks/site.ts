@@ -4,6 +4,21 @@ export const siteMock: ApiSiteResponse = {
   data: {
     settings: {
       whatsapp_url: 'https://wa.me/995000000000',
+      analytics_id: null,
+    },
+    scripts: {
+      head_scripts: [
+        `<script>
+window.__cmsMockHeadScriptLoaded = true
+console.log('CMS head script loaded')
+</script>`,
+      ],
+      body_end_scripts: [
+        `<script>
+window.__cmsMockBodyEndScriptLoaded = true
+console.log('CMS body-end script loaded')
+</script>`,
+      ],
     },
     contact: {
       image: {

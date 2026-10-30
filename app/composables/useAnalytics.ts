@@ -1,9 +1,9 @@
 export const useAnalytics = () => {
   const config = useRuntimeConfig()
-  const analyticsId = config.public.analyticsId
+  const { settings } = useSiteData()
 
   const initAnalytics = () => {
-    if (!analyticsId) {
+    if (!config.public.indexable || !settings.value.analyticsId) {
       return
     }
 
@@ -11,7 +11,7 @@ export const useAnalytics = () => {
   }
 
   return {
-    analyticsId,
+    analyticsId: computed(() => (config.public.indexable ? settings.value.analyticsId : '')),
     initAnalytics,
   }
 }

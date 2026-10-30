@@ -4,6 +4,7 @@ import { useSiteData } from '~/composables/useSiteData'
 const { t } = useI18n()
 const config = useRuntimeConfig()
 const { contact } = useSiteData()
+const contactUrl = `${config.public.apiBaseUrl}/contact`
 const isImageLoaded = ref(false)
 const contactImageRef = ref<HTMLImageElement | null>(null)
 const form = reactive({
@@ -223,7 +224,7 @@ async function submitForm() {
   }
 
   try {
-    await $fetch(config.public.contactEndpoint, {
+    await $fetch(contactUrl, {
       method: 'POST',
       headers: { Accept: 'application/json' },
       body: {

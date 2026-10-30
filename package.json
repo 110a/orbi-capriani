@@ -6,7 +6,10 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
+    "generate:prod": "env-cmd -f .env.production nuxt generate",
+    "generate:dev": "env-cmd -f .env.development nuxt generate",
     "preview": "nuxt preview",
+    "verify:build": "node scripts/verify-build.mjs",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
@@ -27,6 +30,7 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.20",
     "@types/node": "^26.6.6",
+    "env-cmd": "^11.0.0",
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.9.4"
   }

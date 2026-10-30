@@ -3,22 +3,45 @@ import tailwindcss from '@tailwindcss/vite'
 
 // Must end with a trailing slash.
 const base = process.env.NUXT_APP_BASE_URL || '/'
+const normalizeUrl = (url: string) => url.replace(/\/+$/, '')
+const siteUrl = normalizeUrl(process.env.SITE_URL || 'https://example.com')
+const apiBaseUrl = normalizeUrl(process.env.NUXT_PUBLIC_API_BASE_URL || '')
+const indexable = process.env.SITE_INDEXABLE !== 'false'
+const shortLocaleRuntime = {
+  name: 'short-locale-runtime',
+  renderChunk(code: string) {
+    const transformed = code
+      .replaceAll('en-US', 'en')
+      .replaceAll('ru-RU', 'ru')
+      .replaceAll('ka-GE', 'ka')
+
+    return transformed === code ? null : { code: transformed, map: null }
+  },
+}
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
   css: ['~/assets/css/fonts.css', '~/assets/css/tailwind.css'],
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss(), shortLocaleRuntime],
   },
   nitro: {
     preset: 'static',
+    prerender: {
+      routes: ['/robots.txt'],
+      // The sitemap module exposes sitemap_index.xml; do not prerender i18n page stubs.
+      ignore: ['/sitemap.xml', '/ka/sitemap.xml', '/ru/sitemap.xml'],
+    },
   },
   app: {
     baseURL: base,
     head: {
       titleTemplate: '%s | Capriani Batumi',
-      meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        ...(indexable ? [] : [{ name: 'robots', content: 'noindex, nofollow' }]),
+      ],
       link: [
         {
           rel: 'icon',
@@ -49,19 +72,22 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      analyticsId: process.env.NUXT_PUBLIC_ANALYTICS_ID || '',
-      apiBase: process.env.NUXT_PUBLIC_API_BASE || '',
-      contactEndpoint: process.env.NUXT_PUBLIC_CONTACT_ENDPOINT || '/api/contact',
+      apiBaseUrl,
       recaptchaSiteKey: process.env.NUXT_PUBLIC_RECAPTCHA_SITE_KEY || '',
+      indexable,
     },
   },
   site: {
-    url: 'https://110a.github.io/orbi-capriani/',
+    url: siteUrl,
     name: 'Capriani Batumi',
   },
-  sitemap: {
-    autoLastmod: true,
-  },
+  ...(indexable
+    ? {
+        sitemap: {
+          autoLastmod: true,
+        },
+      }
+    : {}),
   fonts: {
     families: [
       {
@@ -71,11 +97,11 @@ export default defineNuxtConfig({
     ],
   },
   i18n: {
-    baseUrl: 'https://110a.github.io/orbi-capriani/',
+    baseUrl: siteUrl,
     locales: [
-      { code: 'en', language: 'en-US', name: 'English', file: 'en.json' },
-      { code: 'ru', language: 'ru-RU', name: 'Русский', file: 'ru.json' },
-      { code: 'ka', language: 'ka-GE', name: 'ქართული', file: 'ka.json' },
+      { code: 'en', language: 'en', name: 'English', file: 'en.json' },
+      { code: 'ru', language: 'ru', name: 'Русский', file: 'ru.json' },
+      { code: 'ka', language: 'ka', name: 'ქართული', file: 'ka.json' },
     ],
     defaultLocale: 'en',
     strategy: 'prefix_except_default',
@@ -86,7 +112,7 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxt/image',
     '@nuxt/fonts',
-    '@nuxtjs/sitemap',
+    ...(indexable ? ['@nuxtjs/sitemap'] : []),
     '@nuxt/eslint',
     '@nuxtjs/i18n',
   ],
