@@ -10,13 +10,13 @@ export const siteMock: ApiSiteResponse = {
       head_scripts: [
         `<script>
 window.__cmsMockHeadScriptLoaded = true
-console.log('CMS head script loaded')
+console.log('CMS head script loaded edit')
 </script>`,
       ],
       body_end_scripts: [
         `<script>
 window.__cmsMockBodyEndScriptLoaded = true
-console.log('CMS body-end script loaded')
+console.log('CMS body-end script loaded edit')
 </script>`,
       ],
     },
