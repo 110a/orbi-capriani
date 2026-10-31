@@ -1,41 +1,59 @@
-name: Deploy to GitHub Pages
+name: Build dev site
 
 on:
   push:
-    branches: [main]
+    branches: [develop]
+  workflow_dispatch:
+
+concurrency:
+  group: build-dev
+  cancel-in-progress: false
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
+      - name: Checkout source
+        uses: actions/checkout@v4
         with:
-          node-version: 20
+          ref: develop
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
           cache: npm
 
-      - run: npm ci
+      - name: Install
+        run: npm ci
 
-      - run: npm run generate
-        env:
-          NUXT_APP_BASE_URL: /orbi-capriani/
+      - name: Build dev
+        run: npm run generate:dev
 
-      - uses: actions/upload-pages-artifact@v3
+      - name: Verify build
+        run: npx env-cmd -f .env.development npm run verify:build -- https://dev.ciprianibatumi.com
+
+      - name: Checkout deploy branch
+        uses: actions/checkout@v4
         with:
-          path: .output/public
+          ref: deploy-dev
+          path: deploy
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - uses: actions/deploy-pages@v4
-        id: deployment
+      - name: Copy build without video
+        run: rsync -a --delete --exclude='.git' --exclude='.gitignore' --exclude='.DS_Store' --exclude='video/' .output/public/ deploy/
+
+      - name: Commit and push
+        working-directory: deploy
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Dev build from ${GITHUB_SHA::7}"
+          git push origin deploy-dev
